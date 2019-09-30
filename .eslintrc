@@ -1,0 +1,12 @@
+{
+  "parser": "babel-eslint",
+  "root": true,
+  "extends": [ "@asd14/eslint-config/targets/react" ],
+  "settings": {
+    // Recommended if you use eslint_d
+    "import/cache": {
+      "lifetime": 5,
+    }
+  },
+  "rules": {}
+}

@@ -1,0 +1,123 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+
+#
+# YAML variable templates
+#
+job_defaults: &job_defaults
+  working_directory: ~/next-repo
+  docker:
+    - image: circleci/node:8
+
+job_filter: &job_filter
+  filters:
+    branches:
+      only:
+        - master
+
+#
+# Run all jobs in sequence
+#
+workflows:
+  version: 2
+  npm_publish:
+    jobs:
+      - setup:
+          <<: *job_filter
+      - test:
+          <<: *job_filter
+          requires:
+            - setup
+      # - coverage:
+      #     <<: *job_filter
+      #     requires:
+      #       - test
+      - publish:
+          <<: *job_filter
+          requires:
+            - test
+
+#
+# Define atomic jobs
+#
+jobs:
+  setup:
+    <<: *job_defaults
+
+    steps:
+      - checkout
+
+      - run:
+          name: "next: Install npm packages"
+          command: "npm run setup:ci"
+
+      - run:
+          name: "next: Babel compile"
+          command: "npm run build:ci"
+
+      - save_cache:
+          paths:
+            - node_modules
+            - dist
+            - src
+            - .git
+            - .babelrc
+            - .eslintrc
+            - .gitignore
+            - .nycrc
+            - .prettierrc
+            - README.md
+            - CHANGELOG.md
+            - package-lock.json
+            - package.json
+          key: next-{{ .Branch }}-{{ .Revision }}
+
+  test:
+    <<: *job_defaults
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - next-{{ .Branch }}-{{ .Revision }}
+
+      - run:
+          name: "next: Run linter"
+          command: "npm run lint"
+
+      # - run:
+      #     name: "next: Run tests"
+      #     command: "npm run test:ci"
+
+  coverage:
+    <<: *job_defaults
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - next-{{ .Branch }}-{{ .Revision }}
+
+      - run:
+          name: "next: Publish test coverage to COVERALLS"
+          command: "npm run coverage:ci"
+
+  publish:
+    <<: *job_defaults
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - next-{{ .Branch }}-{{ .Revision }}
+
+      - run:
+          name: "next: Release to npm with semantic-release"
+          command: "npx semantic-release"
+

@@ -19,6 +19,7 @@ coverage
 
 # nyc test coverage
 .nyc_output
+.coveralls.yml
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
@@ -59,3 +60,11 @@ typings/
 
 # next.js build output
 .next
+
+# Babel compile
+dist/
+
+# Sublime text
+*.sublime-project
+*.sublime-workspace
+.tern-port
