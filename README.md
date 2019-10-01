@@ -9,11 +9,10 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Install](#install)
-* [Develop](#develop)
-* [Use](#use)
-  * [Setup](#setup)
-  * [Track](#track)
+* [Setup](#setup)
+* [Track](#track)
 * [Cookies](#cookies)
+* [Develop](#develop)
 * [Commit messages](#commit-messages)
 * [Changelog](#changelog)
 
@@ -24,6 +23,57 @@
 ```bash
 npm install @mutantlove/next
 ```
+
+## Setup
+
+Link events to your product/board.
+
+The `productId` field is required. An error will be thrown if using `track` without it.
+
+```js
+import { setup } from "@mutantlove/next"
+
+setup({
+  productId: "123",
+})
+```
+
+You can run `setup` multiple times to attach other date to all future `track` calls.
+
+Ex. User ID after a successfull login.
+
+```js
+import { setup } from "@mutantlove/next"
+
+const login = ({ email, password }) =>
+  POST("/login", { body: { email, password } }).then(({ id }) => {
+    setup({
+      userId: id,
+    })
+  })
+```
+
+## Track
+
+Use `track` to record an event when something in your application happens.
+
+The `name` parameter is required and an error will be thrown if not passed.
+
+> We're using BEM for event naming, it's working fine till now
+
+```js
+import { track } from "@mutantlove/next"
+
+track("page__section--action-name", {
+  context: "data such as",
+  userId: "can be added to",
+  events: "by putting it here",
+})
+```
+
+## Cookies
+
+The first time the `track` function is called a `mutant` cookie with the session id will be set.
 
 ## Develop
 
@@ -38,38 +88,6 @@ npm test
 # watch `src` folder for changes and run test automatically
 npm run tdd
 ```
-
-## Use
-
-### Setup
-
-Before your application starts.
-
-```js
-import { setConfig } from "@mutantlove/next"
-
-setConfig({
-  productId: "123",
-})
-```
-
-### Track
-
-When something happens.
-
-```js
-import { track } from "@mutantlove/next"
-
-track("page__section--action-name", {
-  context: "data such as",
-  userId: "can be added to",
-  events: "by putting it here",
-})
-```
-
-## Cookies
-
-When running `setConfig` the first time, a `mutant` cookie will be set with the session id.
 
 ## Commit messages
 
