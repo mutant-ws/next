@@ -11,15 +11,30 @@ const settings = {
 
 export const setup = ({ productId, host, ...rest } = {}) => {
   settings.other = rest
-  settings.productId = productId
 
-  if (!isEmpty(host)) {
+  if (is(productId)) {
+    settings.productId = productId
+  }
+
+  if (is(host)) {
     settings.host = host
   }
 }
 
 export const track = (name, other = {}) => {
   const fetchFn = is(window.fetch) ? window.fetch : fetchPolyfill
+
+  if (isEmpty(settings.productId)) {
+    throw new Error(
+      `MutantNext: "productId" value "${settings.productId}" is invalid. Needs to be a UUID with the product ID. Get the value from the product setting page`
+    )
+  }
+
+  if (isEmpty(name)) {
+    throw new Error(
+      `MutantNext: "name" value "${name}" is invalid. Needs to be a string. We're using BEM for event naming, it's working fine till now`
+    )
+  }
 
   return fetchFn(`${settings.host}/track`, {
     method: "POST",
