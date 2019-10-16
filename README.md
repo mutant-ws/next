@@ -26,7 +26,7 @@ npm install @mutantlove/next
 
 ## Setup
 
-Link events to your product/board.
+Link events to your product.
 
 The `productId` field is required. An error will be thrown if using `track` without it.
 
