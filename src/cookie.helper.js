@@ -7,7 +7,7 @@ const setCookie = () => {
   const daysToExpire = 3500
 
   date.setTime(date.getTime() + daysToExpire * 24 * 60 * 60 * 1000)
-  document.cookie = `mutant=${newCookie}; expires=${date.toGMTString()}`
+  document.cookie = `mutant=${newCookie}; path=/; expires=${date.toGMTString()}`
 
   return newCookie
 }
