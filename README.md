@@ -28,7 +28,7 @@ npm install @mutantlove/next
 
 Use `set` to add properties that will be sent with every future call of `track`.
 
-- `productId` is required. An error will be thrown if using `track` without it.
+* `productId` is required. An error will be thrown if using `track` without it.
 
 ```js
 import { set } from "@mutantlove/next"
@@ -57,8 +57,8 @@ const login = ({ email, password }) =>
 
 Use `track` to record events when something in your application happens.
 
-- `name` is required. An error will be thrown if not passed.
-- `productId` can overwrite prev value via `set`
+* `name` is required. An error will be thrown if not passed.
+* `productId` can overwrite prev value via `set`
 
 > We're using BEM for event naming, it's working fine till now
 
@@ -74,7 +74,7 @@ track("page__section--action-name", {
 
 ## Cookies
 
-- `mutant` - Session id
+* `mutant` - Session id
 
 ## Develop
 
