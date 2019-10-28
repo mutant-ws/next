@@ -9,7 +9,7 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Install](#install)
-* [Setup](#setup)
+* [Set](#set)
 * [Track](#track)
 * [Cookies](#cookies)
 * [Develop](#develop)
@@ -24,30 +24,30 @@
 npm install @mutantlove/next
 ```
 
-## Setup
+## Set
 
-Link events to your product.
+Use `set` to add properties that will be sent with every future call of `track`.
 
-The `productId` field is required. An error will be thrown if using `track` without it.
+- `productId` is required. An error will be thrown if using `track` without it.
 
 ```js
-import { setup } from "@mutantlove/next"
+import { set } from "@mutantlove/next"
 
-setup({
+set({
   productId: "123",
 })
 ```
 
-You can run `setup` multiple times to attach other date to all future `track` calls.
+You can run `set` multiple times to attach other data.
 
 Ex. User ID after a successfull login.
 
 ```js
-import { setup } from "@mutantlove/next"
+import { set } from "@mutantlove/next"
 
 const login = ({ email, password }) =>
   POST("/login", { body: { email, password } }).then(({ id }) => {
-    setup({
+    set({
       userId: id,
     })
   })
@@ -55,9 +55,10 @@ const login = ({ email, password }) =>
 
 ## Track
 
-Use `track` to record an event when something in your application happens.
+Use `track` to record events when something in your application happens.
 
-The `name` parameter is required and an error will be thrown if not passed.
+- `name` is required. An error will be thrown if not passed.
+- `productId` can overwrite prev value via `set`
 
 > We're using BEM for event naming, it's working fine till now
 
@@ -73,7 +74,7 @@ track("page__section--action-name", {
 
 ## Cookies
 
-The first time the `track` function is called a `mutant` cookie with the session id will be set.
+- `mutant` - Session id
 
 ## Develop
 
