@@ -1,4 +1,4 @@
-import { get, is, isEmpty } from "@mutantlove/m"
+import { is, isEmpty } from "@mutantlove/m"
 
 import { getSessionCookie } from "./cookie.helper"
 
@@ -53,7 +53,7 @@ export const track = (name, { productId: oneTimeProductId, other } = {}) => {
       JSON.stringify({
         name,
         sessionId: getSessionCookie(),
-        productId: get("productId", settings.productId)(other),
+        productId,
         default: {
           url: window.location.href,
           screen: `${window.screen.width}x${window.screen.height}`,
