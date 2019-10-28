@@ -28,7 +28,7 @@ export const set = ({ productId, host, ...rest } = {}) => {
   }
 }
 
-export const track = (name, { productId: oneTimeProductId, other } = {}) => {
+export const track = (name, { productId: oneTimeProductId, ...other } = {}) => {
   const productId = is(oneTimeProductId) ? oneTimeProductId : settings.productId
 
   if (isEmpty(productId)) {
