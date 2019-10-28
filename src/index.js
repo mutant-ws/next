@@ -1,4 +1,4 @@
-import { is, isEmpty } from "@mutantlove/m"
+import { get, is, isEmpty } from "@mutantlove/m"
 
 import { getSessionCookie } from "./cookie.helper"
 
@@ -16,8 +16,8 @@ const settings = {
   other: {},
 }
 
-export const setup = ({ productId, host, ...rest } = {}) => {
-  settings.other = rest
+export const set = ({ productId, host, ...rest } = {}) => {
+  settings.other = isEmpty(rest) ? {} : rest
 
   if (is(productId)) {
     settings.productId = productId
@@ -28,10 +28,12 @@ export const setup = ({ productId, host, ...rest } = {}) => {
   }
 }
 
-export const track = (name, other = {}) => {
-  if (isEmpty(settings.productId)) {
+export const track = (name, { productId: oneTimeProductId, other } = {}) => {
+  const productId = is(oneTimeProductId) ? oneTimeProductId : settings.productId
+
+  if (isEmpty(productId)) {
     throw new Error(
-      `MutantNext: "productId" value "${settings.productId}" is invalid. Needs to be a UUID with the product ID. Get the value from the product setting page`
+      `MutantNext: "productId" value not found. Neither settings (via set) nor call specific value found. Get ID of your product from the Product Setting page.`
     )
   }
 
@@ -51,7 +53,7 @@ export const track = (name, other = {}) => {
       JSON.stringify({
         name,
         sessionId: getSessionCookie(),
-        productId: settings.productId,
+        productId: get("productId", settings.productId)(other),
         default: {
           url: window.location.href,
           screen: `${window.screen.width}x${window.screen.height}`,
