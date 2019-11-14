@@ -16,12 +16,5 @@ export const getSessionCookie = () =>
   pipe(
     split("; "),
     find(startsWith("mutant=")),
-    when(
-      is,
-      pipe(
-        split("="),
-        get(1)
-      ),
-      setCookie
-    )
+    when(is, pipe(split("="), get(1)), setCookie)
   )(document.cookie)
