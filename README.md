@@ -12,6 +12,7 @@
 * [Set](#set)
 * [Track](#track)
 * [Cookies](#cookies)
+* [With every event](#with-every-event)
 * [Develop](#develop)
 * [Commit messages](#commit-messages)
 * [Changelog](#changelog)
@@ -28,7 +29,8 @@ npm install @mutantlove/next
 
 Use `set` to add properties that will be sent with every future call of `track`.
 
-* `productId` is required. An error will be thrown if using `track` without it.
+* `productId` is required. An error will be thrown if using `track` without it.  
+  Get the id from your profile page, in the install section of your product.
 
 ```js
 import { set } from "@mutantlove/next"
@@ -40,7 +42,7 @@ set({
 
 You can run `set` multiple times to attach other data.
 
-Ex. User ID after a successfull login.
+Ex. `userId` after a successfull login.
 
 ```js
 import { set } from "@mutantlove/next"
@@ -60,7 +62,7 @@ Use `track` to record events when something in your application happens.
 * `name` is required. An error will be thrown if not passed.
 * `productId` can overwrite prev value via `set`
 
-> We're using BEM for event naming, it's working fine till now
+We're using BEM for event naming, it's working fine till now. Also, when plotting an event in a task, the legend label will only show the M (modifier) part of BEM.
 
 ```js
 import { track } from "@mutantlove/next"
@@ -74,7 +76,18 @@ track("page__section--action-name", {
 
 ## Cookies
 
-* `mutant` - Session id
+* `mutant` - Unique client id. Changes only if manualy deleted.
+
+## With every event
+
+We automatically collect the following data with every event.
+
+* Screen size: width and height of viewport and screen
+* User agent
+* URL
+* Referer
+* IP
+* Timestamp
 
 ## Develop
 
