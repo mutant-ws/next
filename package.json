@@ -41,12 +41,12 @@
     "cuid": "2.1.6"
   },
   "devDependencies": {
-    "@babel/cli": "7.6.4",
-    "@babel/core": "7.6.4",
+    "@babel/cli": "7.7.0",
+    "@babel/core": "7.7.2",
     "@babel/plugin-proposal-pipeline-operator": "7.5.0",
-    "@babel/preset-env": "7.6.3",
-    "@babel/register": "7.6.2",
-    "@mutantlove/eslint-config": "5.3.0",
+    "@babel/preset-env": "7.7.1",
+    "@babel/register": "7.7.0",
+    "@mutantlove/eslint-config": "5.4.0",
     "babel-eslint": "10.0.3",
     "coveralls": "3.0.7",
     "eslint": "6.6.0",
@@ -54,7 +54,7 @@
     "eslint-plugin-html": "6.0.0",
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-json": "2.0.1",
-    "eslint-plugin-no-inferred-method-name": "1.0.2",
+    "eslint-plugin-no-inferred-method-name": "2.0.0",
     "eslint-plugin-prettier": "3.1.1",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-react": "7.16.0",
@@ -62,9 +62,9 @@
     "markdownlint-cli": "0.19.0",
     "npm-check": "5.9.0",
     "nyc": "14.1.1",
-    "prettier": "1.18.2",
-    "riteway": "6.1.0",
-    "semantic-release": "15.13.28",
+    "prettier": "1.19.1",
+    "riteway": "6.1.1",
+    "semantic-release": "15.13.30",
     "tap-nirvana": "1.1.0"
   }
 }
