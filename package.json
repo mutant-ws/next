@@ -50,7 +50,7 @@
     "babel-eslint": "10.0.3",
     "coveralls": "3.0.7",
     "eslint": "6.6.0",
-    "eslint-config-prettier": "6.5.0",
+    "eslint-config-prettier": "6.6.0",
     "eslint-plugin-html": "6.0.0",
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-json": "2.0.1",
@@ -58,13 +58,13 @@
     "eslint-plugin-prettier": "3.1.1",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-react": "7.16.0",
-    "eslint-plugin-unicorn": "12.1.0",
+    "eslint-plugin-unicorn": "13.0.0",
     "markdownlint-cli": "0.19.0",
     "npm-check": "5.9.0",
     "nyc": "14.1.1",
     "prettier": "1.19.1",
     "riteway": "6.1.1",
-    "semantic-release": "15.13.30",
+    "semantic-release": "15.13.31",
     "tap-nirvana": "1.1.0"
   }
 }
