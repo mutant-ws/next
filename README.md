@@ -2,7 +2,7 @@
 
 # next
 
-> Official tracking library for the Mutant board
+> Official tracking library for the Mutant Workspace
 
 ---
 
@@ -12,7 +12,7 @@
 * [Set](#set)
 * [Track](#track)
 * [Cookies](#cookies)
-* [With every event](#with-every-event)
+* [Collected data](#collected-data)
 * [Develop](#develop)
 * [Commit messages](#commit-messages)
 * [Changelog](#changelog)
@@ -27,10 +27,7 @@ npm install @mutantlove/next
 
 ## Set
 
-Use `set` to add properties that will be sent with every future call of `track`.
-
-* `productId` is required. An error will be thrown if using `track` without it.  
-  Get the id from your profile page, in the install section of your product.
+Use `set` to add data that gets sent with every call of `track`. Get the `productId` from your [profile page](https://getmutant.com/me), in the install section of your product.
 
 ```js
 import { set } from "@mutantlove/next"
@@ -42,7 +39,7 @@ set({
 
 You can run `set` multiple times to attach other data.
 
-Ex. `userId` after a successfull login.
+Ex. `userId` after a successful login.
 
 ```js
 import { set } from "@mutantlove/next"
@@ -57,12 +54,12 @@ const login = ({ email, password }) =>
 
 ## Track
 
-Use `track` to record events when something in your application happens.
+Use `track` to record an event your application.
 
-* `name` is required. An error will be thrown if not passed.
-* `productId` can overwrite prev value via `set`
+* `name` is required - Name of the event that you'll use to plot inside a card. An error will be thrown if not passed.
+* `productId` - You can either set `productId` once via `set` or explicitly add it to the `track` call.
 
-We're using BEM for event naming, it's working fine till now. Also, when plotting an event in a task, the legend label will only show the M (modifier) part of BEM.
+We're using [BEM](http://getbem.com/naming) for event naming, it's working fine till now. Also, when plotting an event in a card, the legend label will only show the M (modifier) part of BEM.
 
 ```js
 import { track } from "@mutantlove/next"
@@ -76,16 +73,16 @@ track("page__section--action-name", {
 
 ## Cookies
 
-* `mutant` - Unique client id. Changes only if manualy deleted.
+* `mutant` - Unique client id. Changes only if manually deleted.
 
-## With every event
+## Collected data
 
-We automatically collect the following data with every event.
+Beside any data send explicitly by you, we also automatically collect the following data with every event.
 
 * Screen size: width and height of viewport and screen
 * User agent
 * URL
-* Referer
+* Referrer
 * IP
 * Timestamp
 
