@@ -33,13 +33,13 @@ export const track = (name, { productId: oneTimeProductId, ...other } = {}) => {
 
   if (isEmpty(productId)) {
     throw new Error(
-      `MutantNext: "productId" value not found. Neither settings (via set) nor call specific value found. Get ID of your product from the Product Setting page.`
+      `MutantNext: "productId" value not found. Neither settings (via set) nor call specific value found. Get ID of your product section in your profile page - getmutant.com/me.`
     )
   }
 
   if (isEmpty(name)) {
     throw new Error(
-      `MutantNext: "name" value "${name}" is invalid. Needs to be a string. We're using BEM for event naming, it's working fine till now`
+      `MutantNext: "name" value "${name}" is invalid. Need a string.`
     )
   }
 
