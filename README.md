@@ -2,7 +2,7 @@
 
 # next
 
-> Official tracking library for the Mutant Workspace
+Official tracking library for the Mutant Workspace.
 
 ---
 
@@ -11,6 +11,7 @@
 * [Install](#install)
 * [Set](#set)
 * [Track](#track)
+* [Terminal](#terminal)
 * [Cookies](#cookies)
 * [Collected data](#collected-data)
 * [Develop](#develop)
@@ -71,13 +72,28 @@ track("page__section--action-name", {
 })
 ```
 
+## Terminal
+
+Events can also be sent programmatically.
+
+Make a `POST` at `https://api.mutant.love/track` with the same requirements as before, `name` and `productId` required.
+
+Ex. Tracking CI deployment success and failure.
+
+```bash
+curl \\
+  --header "Content-Type: application/json" \\
+  --data '{"name": "terminal-test", "productId": "${id}"}' \\
+  https://api.mutant.love/track`
+```
+
 ## Cookies
 
 * `mutant` - Unique client id. Changes only if manually deleted.
 
 ## Collected data
 
-Beside any data send explicitly by you, we also automatically collect the following data with every event.
+We automatically collect the following data with every event.
 
 * Screen size: width and height of viewport and screen
 * User agent
