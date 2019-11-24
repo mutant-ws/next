@@ -1,6 +1,6 @@
 <!-- markdownlint-disable first-line-h1 line-length no-inline-html -->
 
-# next <img src="src/logo.png" alt="MutantNext Logo" align="right" style="width:128px;float:right;"/>
+# next <img src="src/logo.png" alt="MutantNext Logo" align="right"/>
 
 Official browser tracking library for the Mutant Workspace.
 
@@ -10,7 +10,7 @@ Official browser tracking library for the Mutant Workspace.
 * [Use](#use)
   * [`set`](#set)
   * [`track`](#track)
-  * [Terminal](#terminal)
+  * [API](#api)
 * [Cookies](#cookies)
 * [Collected data](#collected-data)
 * [Develop](#develop)
@@ -73,7 +73,7 @@ track("page__section--action-name", {
 })
 ```
 
-### Terminal
+### API
 
 Make a `POST` at `https://api.mutant.love/track` with the same requirements as before, `name` and `productId` required.
 
