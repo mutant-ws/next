@@ -7,9 +7,10 @@ Official browser tracking library for the Mutant Workspace.
 <!-- vim-markdown-toc GFM -->
 
 * [Install](#install)
-* [Set](#set)
-* [Track](#track)
-* [Terminal](#terminal)
+* [Use](#use)
+  * [`set`](#set)
+  * [`track`](#track)
+  * [Terminal](#terminal)
 * [Cookies](#cookies)
 * [Collected data](#collected-data)
 * [Develop](#develop)
@@ -24,9 +25,11 @@ Official browser tracking library for the Mutant Workspace.
 npm install @mutantlove/next
 ```
 
-## Set
+## Use
 
-Use `set` to add data that gets sent with every call of `track`. Get the `productId` from your [profile page](https://getmutant.com/me), in the install section of your product.
+### `set`
+
+Attach data to every `track` call. Find the `productId` from your [profile page](https://getmutant.com/me), in the install section of your product.
 
 ```js
 import { set } from "@mutantlove/next"
@@ -36,7 +39,7 @@ set({
 })
 ```
 
-You can run `set` multiple times to attach other data.
+You can run `set` multiple times.
 
 Ex. `userId` after a successful login.
 
@@ -51,9 +54,9 @@ const login = ({ email, password }) =>
   })
 ```
 
-## Track
+### `track`
 
-Use `track` to record an event your application.
+Record an event your application.
 
 * `name` is required - Name of the event that you'll use to plot inside a card. An error will be thrown if not passed.
 * `productId` - You can either set `productId` once via `set` or explicitly add it to the `track` call.
@@ -70,9 +73,7 @@ track("page__section--action-name", {
 })
 ```
 
-## Terminal
-
-Events can also be sent programmatically.
+### Terminal
 
 Make a `POST` at `https://api.mutant.love/track` with the same requirements as before, `name` and `productId` required.
 
