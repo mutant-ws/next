@@ -1,4 +1,6 @@
-<!-- markdownlint-disable first-line-h1 line-length -->
+<!-- markdownlint-disable first-line-h1 line-length no-inline-html -->
+
+<img src="src/logo.png" style="width: 128px; float: right; margin-left: 30px;"/>
 
 # next
 
