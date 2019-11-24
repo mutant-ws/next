@@ -1,8 +1,6 @@
 <!-- markdownlint-disable first-line-h1 line-length no-inline-html -->
 
-<img src="src/logo.png" style="width: 128px; float: right; margin-left: 30px;"/>
-
-# next
+# next <img src="src/logo.png" alt="MutantNext Logo" align="right" style="width:128px;float:right;"/>
 
 Official browser tracking library for the Mutant Workspace.
 
