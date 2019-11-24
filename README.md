@@ -81,8 +81,8 @@ Ex. Tracking CI deployment success and failure.
 ```bash
 curl \
   --header "Content-Type: application/json" \
-  --data '{"name": "terminal-test", "productId": "${id}"}' \
-  https://api.mutant.love/track`
+  --data '{"name": "terminal-test", "productId": "uuid"}' \
+  https://api.mutant.love/track
 ```
 
 ## Cookies
