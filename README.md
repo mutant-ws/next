@@ -2,9 +2,7 @@
 
 # next
 
-Official tracking library for the Mutant Workspace.
-
----
+Official browser tracking library for the Mutant Workspace.
 
 <!-- vim-markdown-toc GFM -->
 
@@ -81,9 +79,9 @@ Make a `POST` at `https://api.mutant.love/track` with the same requirements as b
 Ex. Tracking CI deployment success and failure.
 
 ```bash
-curl \\
-  --header "Content-Type: application/json" \\
-  --data '{"name": "terminal-test", "productId": "${id}"}' \\
+curl \
+  --header "Content-Type: application/json" \
+  --data '{"name": "terminal-test", "productId": "${id}"}' \
   https://api.mutant.love/track`
 ```
 
