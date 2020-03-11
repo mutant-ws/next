@@ -1,4 +1,4 @@
-import { is, isEmpty } from "@mutantlove/m"
+import { is, isEmpty } from "@mutant-ws/m"
 
 import { getSessionCookie } from "./cookie.helper"
 

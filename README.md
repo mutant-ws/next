@@ -22,7 +22,7 @@ Official browser tracking library for the Mutant Workspace.
 ## Install
 
 ```bash
-npm install @mutantlove/next
+npm install @mutant-ws/next
 ```
 
 ## Use
@@ -32,7 +32,7 @@ npm install @mutantlove/next
 Attach data to every `track` call. Find the `productId` from your [profile page](https://getmutant.com/me), in the install section of your product.
 
 ```js
-import { set } from "@mutantlove/next"
+import { set } from "@mutant-ws/next"
 
 set({
   productId: "123",
@@ -44,7 +44,7 @@ You can run `set` multiple times.
 Ex. `userId` after a successful login.
 
 ```js
-import { set } from "@mutantlove/next"
+import { set } from "@mutant-ws/next"
 
 const login = ({ email, password }) =>
   POST("/login", { body: { email, password } }).then(({ id }) => {
@@ -64,7 +64,7 @@ Record an event your application.
 We're using [BEM](http://getbem.com/naming) for event naming, it's working fine till now. Also, when plotting an event in a card, the legend label will only show the M (modifier) part of BEM.
 
 ```js
-import { track } from "@mutantlove/next"
+import { track } from "@mutant-ws/next"
 
 track("page__section--action-name", {
   context: "data such as",
@@ -104,7 +104,7 @@ We automatically collect the following data with every event.
 ## Develop
 
 ```bash
-git clone git@github.com:mutantlove/next.git && \
+git clone git@github.com:mutant-ws/next.git && \
   cd next && \
   npm run setup
 
@@ -138,4 +138,4 @@ Using Angular's [conventions](https://github.com/angular/angular.js/blob/master/
 
 ## Changelog
 
-See the [releases section](https://github.com/mutantlove/next/releases) for details.
+See the [releases section](https://github.com/mutant-ws/next/releases) for details.

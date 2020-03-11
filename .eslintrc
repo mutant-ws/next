@@ -1,7 +1,7 @@
 {
   "parser": "babel-eslint",
   "root": true,
-  "extends": [ "@mutantlove/eslint-config/targets/react" ],
+  "extends": [ "@mutantlove/eslint-config/targets/node" ],
   "settings": {
     // Recommended if you use eslint_d
     "import/cache": {
@@ -10,6 +10,8 @@
   },
   "rules": {
     "promise/avoid-new": "off",
+  },
+  "env": {
+    "browser": true,
   }
-
 }

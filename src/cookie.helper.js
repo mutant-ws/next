@@ -1,5 +1,5 @@
 import cuid from "cuid"
-import { when, is, find, get, startsWith, pipe, split } from "@mutantlove/m"
+import { when, is, find, get, startsWith, pipe, split } from "@mutant-ws/m"
 
 const setCookie = () => {
   const newCookie = cuid()
