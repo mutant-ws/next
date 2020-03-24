@@ -18,8 +18,7 @@
   ],
   "author": {
     "name": "Andrei Dumitrescu",
-    "url": "https://github.com/andreidcm",
-    "web": "https://getmutant.com"
+    "url": "https://github.com/andrei-dumitrescu"
   },
   "main": "dist/index.js",
   "scripts": {
@@ -37,21 +36,21 @@
     "tdd": "nodemon -e js --watch src --exec \"npm test\""
   },
   "dependencies": {
-    "@mutant-ws/m": "1.9.0",
-    "cuid": "2.1.8"
+    "@mutant-ws/m": "^1.10.0",
+    "cuid": "^2.1.8"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.7",
-    "@babel/preset-env": "^7.8.7",
-    "@babel/register": "^7.8.6",
-    "@mutantlove/eslint-config": "^5.8.0",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/register": "^7.9.0",
+    "@mutant-ws/eslint-config": "^5.9.0",
     "babel-eslint": "^10.1.0",
-    "coveralls": "^3.0.9",
+    "coveralls": "^3.0.11",
     "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-json": "^2.1.0",
+    "eslint-plugin-json": "^2.1.1",
     "eslint-plugin-no-inferred-method-name": "^2.0.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-promise": "^4.2.1",
@@ -59,7 +58,7 @@
     "markdownlint-cli": "^0.22.0",
     "npm-check": "^5.9.2",
     "nyc": "^15.0.0",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.2",
     "riteway": "^6.1.1",
     "semantic-release": "^17.0.4",
     "tap-nirvana": "^1.1.0"
